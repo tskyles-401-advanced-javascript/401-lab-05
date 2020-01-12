@@ -9,3 +9,5 @@ class Categories extends dataModel{
     this.schema = schema;
   }
 }
+
+module.exports = Categories;
