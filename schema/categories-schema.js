@@ -28,7 +28,6 @@ categories.post('save', () => {
   console.log('record saved to db');
 });
 /**
- * @function
- * @returns console.log()
+ * @module categories categories mongoose schema
  */
 module.exports = mongoose.model('categories', categories);
