@@ -14,7 +14,7 @@ describe('Model CRUD properly functions', () => {
     });
   });
 
-  xit('can get() a record', async () => {
+  it('can get() a record', async () => {
     let testObj = { name: 'test' };
     let createdObj = await model.create(testObj);
     let fetchedObj = await model.get(testObj._id);
@@ -24,7 +24,7 @@ describe('Model CRUD properly functions', () => {
     });
   });
 
-  xit('can update() a record', async () => {
+  it('can update() a record', async () => {
     let testObj = { name: 'test' };
     let updatedObj = { name: 'newName' };
     let createdObj = await model.create(testObj);
@@ -34,7 +34,7 @@ describe('Model CRUD properly functions', () => {
     });
   });
 
-  xit('can delete() a record', async () => {
+  it('can delete() a record', async () => {
     let testObj = { name: 'test' };
     let createdObj = await model.create(testObj);
     await model.delete(createdObj._id);

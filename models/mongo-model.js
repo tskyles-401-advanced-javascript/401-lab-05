@@ -1,5 +1,4 @@
 'use strict';
-let schema = require('../schema/categories-schema');
 /**
  * @class Model
  */
