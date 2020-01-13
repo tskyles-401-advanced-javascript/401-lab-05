@@ -46,7 +46,7 @@ class Model {
  */
   update(_id, record){
     if(_id && record){
-      return this.schema.findOneAndUpdate(record);
+      return this.schema.findByIdAndUpdate(_id, record, {new: true});
     }
     else {
       return undefined;

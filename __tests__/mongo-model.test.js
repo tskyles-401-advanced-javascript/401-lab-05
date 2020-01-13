@@ -24,7 +24,7 @@ describe('Model CRUD properly functions', () => {
     });
   });
 
-  xit('can update() a record', async () => {
+  it('can update() a record', async () => {
     let testObj = { name: 'test', quantity: 10 };
     let updatedObj = { name: 'newName', quantity: 20 };
     let createdObj = await model.create(testObj);
