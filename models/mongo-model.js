@@ -5,7 +5,7 @@
  */
 
 class Model {
-  constructor(){
+  constructor(schema){
     this.schema = schema;
   }
 

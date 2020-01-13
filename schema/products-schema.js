@@ -3,10 +3,8 @@
 const mongoose = require('mongoose');
 
 const products = new mongoose.Schema({
-  category_id: { type: 'string', required: true },
-  price: { type: 'number', required: true },
-  weight: { type: 'number' },
-  quantity_in_stock: { type: 'number', required: true },
+  name: { type: 'string', required: true },
+  quantity: { type: 'number' , required: true},
 });
 /**
  * @function
