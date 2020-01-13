@@ -1,5 +1,5 @@
 'use strict';
-
+let schema = require('../schema/categories-schema');
 /**
  * @class Model
  */
@@ -33,7 +33,7 @@ class Model {
  */
   create(record){
     if(typeof record === 'object'){
-      let newObject = this.schema(record);
+      let newObject = new this.schema(record);
       return newObject.save();
     }
     else {
