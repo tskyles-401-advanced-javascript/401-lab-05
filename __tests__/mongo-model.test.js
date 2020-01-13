@@ -7,7 +7,7 @@ const model = new Model;
 
 describe('Model CRUD properly functions', () => {
   it('can create() a record', async () => {
-    let testObj = { name: test };
+    let testObj = { name: 'test' };
     let createdObj = await model.create(testObj);
     Object.keys(testObj).forEach( key => {
       expect(createdObj[key]).toEqual(testObj[key]);
@@ -15,7 +15,7 @@ describe('Model CRUD properly functions', () => {
   });
 
   it('can get() a record', async () => {
-    let testObj = { name: test };
+    let testObj = { name: 'test' };
     let createdObj = await model.create(testObj);
     let fetchedObj = await model.get(testObj._id);
     expect(fetchedObj._id).toEqual(createdObj._id);
@@ -24,8 +24,14 @@ describe('Model CRUD properly functions', () => {
     });
   });
 
-  it('can update() a record', () => {
-
+  it('can update() a record', async () => {
+    let testObj = { name: 'test' };
+    let updatedObj = { name: 'newName' };
+    let createdObj = await model.create(testObj);
+    let newObj = await model.update(createdObj._id, updatedObj);
+    Object.keys(updatedObj).forEach( key => {
+      expect(newObj[key]).not.toEqual(testObj[key]);
+    });
   });
 
   it('can delete() a record', () => {
