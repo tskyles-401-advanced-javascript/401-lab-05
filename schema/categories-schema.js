@@ -2,32 +2,34 @@
 
 const mongoose = require('mongoose');
 
-const products = new mongoose.Schema({
+const categories = new mongoose.Schema({
   name: { type: 'string', required: true },
-  quantity: { type: 'number' , required: true},
+  price: { type: 'number', required: true },
+  weight: { type: 'number' },
+  quantity_in_stock: { type: 'number', required: true },
 });
 /**
  * @function
  * @returns console.log()
  */
-products.post('findOne', record => {
+categories.post('findOne', record => {
   console.log('record found... returning');
 });
 /**
  * @function
  * @returns console.log()
  */
-products.post('find', () => {
+categories.post('find', () => {
   console.log('could not find record...');
 });
 /**
  * @function
  * @returns console.log()
  */
-products.post('save', () => {
+categories.post('save', () => {
   console.log('record saved to db');
 });
 /**
- * @module products products mongoose schema
+ * @module categories categories mongoose schema
  */
-module.exports = mongoose.model('products', products);
+module.exports = mongoose.model('categories', categories);
