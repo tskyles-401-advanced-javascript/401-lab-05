@@ -38,7 +38,7 @@ describe('Model CRUD properly functions', () => {
     let testObj = { name: 'test' };
     let createdObj = await model.create(testObj);
     await model.delete(createdObj._id);
-    let fetchedObj = get(createdObj);
+    let fetchedObj = model.get(createdObj);
     expect(fetchedObj).toBeNull();
   });
 });
