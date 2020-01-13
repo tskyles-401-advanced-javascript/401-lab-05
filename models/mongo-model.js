@@ -3,20 +3,34 @@
 /**
  * @class Model
  */
-
+/**
+ *
+ *
+ * @class Model
+ */
 class Model {
   constructor(schema){
     this.schema = schema;
   }
 
-  // get record based on id
+  /**
+  *
+  *
+  * @param {*} _id
+  * @memberof Model
+  */
   get(_id){
     if(_id){
       return this.schema.findOne( {_id} );
     }
     else this.schema.find();
   }
-
+  /**
+ *
+ *
+ * @param {*} record
+ * @memberof Model
+ */
   create(record){
     if(typeof record === 'object'){
       let newObject = this.schema(record);
@@ -26,7 +40,13 @@ class Model {
       return Error('something went wrong.. Could not save to db..');}
   }
   
-
+  /**
+ *
+ *
+ * @param {*} _id
+ * @param {*} record
+ * @memberof Model
+ */
   update(_id, record){
     if(_id && record){
       return this.schema.findOneAndUpdate(record);
@@ -35,7 +55,12 @@ class Model {
       return undefined;
     }
   }
-
+  /**
+ *
+ *
+ * @param {*} _id
+ * @memberof Model
+ */
   delete(_id){
     if(_id){
       return this.schema.findByIdAndDelete(_id);
@@ -46,4 +71,7 @@ class Model {
   }
 }
 
+/** 
+ * @module Model
+*/
 module.exports = Model;
