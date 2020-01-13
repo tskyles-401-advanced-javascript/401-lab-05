@@ -14,10 +14,10 @@ describe('Model CRUD properly functions', () => {
     });
   });
 
-  xit('can get() a record', async () => {
+  it('can get() a record', async () => {
     let testObj = { name: 'test', quantity: 10  };
     let createdObj = await model.create(testObj);
-    let fetchedObj = await model.get(testObj._id);
+    let fetchedObj = await model.get(createdObj._id);
     expect(fetchedObj._id).toEqual(createdObj._id);
     Object.keys(testObj).forEach( key => {
       expect(fetchedObj[key]).toEqual(testObj[key]);
