@@ -34,7 +34,11 @@ describe('Model CRUD properly functions', () => {
     });
   });
 
-  it('can delete() a record', () => {
-
+  it('can delete() a record', async () => {
+    let testObj = { name: 'test' };
+    let createdObj = await model.create(testObj);
+    await model.delete(createdObj._id);
+    let fetchedObj = get(createdObj);
+    expect(fetchedObj).toBeNull();
   });
 });
