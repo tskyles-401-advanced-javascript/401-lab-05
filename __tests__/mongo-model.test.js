@@ -14,8 +14,14 @@ describe('Model CRUD properly functions', () => {
     });
   });
 
-  it('can get() a record', () => {
-
+  it('can get() a record', async () => {
+    let testObj = { name: test };
+    let createdObj = await model.create(testObj);
+    let fetchedObj = await model.get(testObj._id);
+    expect(fetchedObj._id).toEqual(createdObj._id);
+    Object.keys(testObj).forEach( key => {
+      expect(fetchedObj[key]).toEqual(testObj[key]);
+    });
   });
 
   it('can update() a record', () => {
