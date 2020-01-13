@@ -34,11 +34,11 @@ describe('Model CRUD properly functions', () => {
     });
   });
 
-  xit('can delete() a record', async () => {
+  it('can delete() a record', async () => {
     let testObj = { name: 'test', quantity: 10 };
     let createdObj = await model.create(testObj);
     await model.delete(createdObj._id);
-    let fetchedObj = model.get(createdObj._id);
+    let fetchedObj = await model.get(createdObj._id);
     expect(fetchedObj).toBeNull();
   });
 });
